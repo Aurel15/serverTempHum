@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>temperaturanzeige, arduino</title>
+</head>
+<body>
+    <h1>Temperatur- und Feuchtigkeitsanzeige </h1>
+        <div>Temparatur und Feuchtigkeit wird per Arduino gemessen 
+        und hir in live und in einem Diagramm (im verlauf von mehreren tagen)
+        angezeigt. So können sie immer und überall mitbekommen wie das Klima 
+        bei ihnen Zuhauseist ist, mit ihrem Arduino Wetter. </div>
+        
+    <h2> live Anzeige:  </h2>
+    <ol>
+            <li>Temparatur jetzt: <span id="temperature">0</span> °C </li>
+            <li>Feuchtigkeit jetzt:  <span id="humidity">0</span>  %</li>
+    </ol>
+    <h3>Diagramm</h3>
+    <div>____________________________________</div>
+    <div>
+        <div id="cartlein2"></div>
+        <div id="chart"></div>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="js/code.js"></script>
+        <div>_________________________________________________________________________________________________________________________________________________________________</div>
+        
+        
+        <div>___________________________________________________________________________________________________________________________________________________________________</div>
+    <h4>Temperatur der letsten 30 Tage in Diagramm</h4>
+    <a href="http://127.0.0.1:5501/index3.html">klicken sie hier</a>
+        <div>___________________________________________________________________________________________________________________________________________________________________</div>
+        <div> Ausgelesen vom Arduino mit dem Stantord: Deutschland/Brandenburg/Elbe_Elster/Finsterwalde/Lichterfeld-Schacksdorf
+        </div>
+        <div>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</div>
+        <div>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</div>
+        <div>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . </div>
+        <div>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. . . . . . . . . . . . . . . . . .  . . . . .. . </div>
+        <div>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</div>
+        <div>. . . . . . . . . . . . . .</div>
+        <div>   </div>
+    <a href="https://www.google.com/search?client=ubuntu&channel=fs&q=google+wetter&ie=utf-8&oe=utf-8">hier klicken für Wetter dinste </a>
+        <div>   </div>
+        <div>___________________________________________________________________________________________________________________________________________________________________</div>
+        <div>___________________________________________________________________________________________________________________________________________________________________</div>
+        <div> </div>
+    <span>ihre mini Wetterstation zu Hause mit </span>
+        <div>.""Arduino Wetter"".</div>
+    <h5>____________________</h5>
+        <div>___________________________________________________________________________________________________________________________________________________________________</div>
+        
+</body>
+</html>

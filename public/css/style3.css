@@ -1,0 +1,17 @@
+body {background-color: rgba(3, 109, 109, 0.582);}
+a {color: red;;}
+.flex-contaimer {
+    display: flex;
+}
+a {
+    background-color: rgb(3, 253, 128)
+}
+div {color: rgb(0, 0, 0);;}
+a {
+    border: 2px solid red;
+    border-radius: 0 1em 0 1em; ;
+    margin:   20px auto;
+    padding: 1em;
+
+}
+img {text-align: center;}
