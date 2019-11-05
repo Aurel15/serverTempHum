@@ -44,10 +44,16 @@ var options = {
       }
     },
     xaxis: {
-      categories: ['01', '02', '03', '04', '05', '06', '07', '08', '09',
-        '10', '11', '12','13','14','15','16','17','18','19','20','21',
-        '22','23','24','25','26','27','28','29','30'
+      categories: [
+        {
+          max: 30,
+          min: 0,
+        }
       ],
+      type: 'datetime',
+      labels: {
+          format: 'HH:mm:ss'
+      }
     },
       yaxis: [
         {
@@ -81,19 +87,22 @@ var options = {
   window.onload = function () {
     
     xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "http://localhost:8080/list", false);
+    //xhttp.open("GET", "http://localhost:8080/list", false);
+    xhttp.open("GET", "/list", false);
     xhttp.send();
     var res = JSON.parse(xhttp.responseText);
-    
+    console.log(res)
+
     // array.forEach(val => {foo}) === array.forEach(function (val) {})
-    res.dates.forEach(val => {
+    res.forEach(val => {
+      var date = new Date(val.date).getTime()
       tdata.push({
-        x: val.time,
-        y: val.temp
+        x: date,
+        y: Math.round(val.temp)
       })
       hdata.push({
-          x: val.time,
-          y: val.hum
+          x: date,
+          y: Math.round(val.hum)
       })
     });
 

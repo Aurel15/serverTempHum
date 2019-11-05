@@ -6,9 +6,15 @@ Content-Type: application/json
 
 {
     "temp":{{$randomInt 0 40}},
-    "hum": {{$randomInt 50 80}}
+    "hum": {{$randomInt 40 90}}
 }
 
 ###
 
 GET {{url}}/list HTTP/1.1
+###
+
+GET {{url}}/json HTTP/1.1
+###
+
+GET {{url}}/lastjson HTTP/1.1

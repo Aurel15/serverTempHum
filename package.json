@@ -9,6 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "devStart": "nodemon node.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Aurel15",

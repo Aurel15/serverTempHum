@@ -1,30 +1,57 @@
 var data = []
 var data2 = []
-var TICKINTERVAL = 3600 // in ms
+var TICKINTERVAL = 4600 // in ms
 let XAXISRANGE = TICKINTERVAL * 24 // Anzahl Messwerte
+
+function loadInitialData() {
+    xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "/json", false);
+    xhttp.send();
+    var res = JSON.parse(xhttp.responseText);
+    res.forEach(val => {
+        data.push({
+            x: val.date,
+            y: val.temp
+        })
+        data2.push({
+            x: val.date,
+            y: val.hum
+        })
+    })
+}
+loadInitialData()
 
 
 function getNewSeries(res) {
+    if (data[data.length - 1].x != res.date) {
+        for(var i = 0; i< data.length - 1 - (XAXISRANGE / TICKINTERVAL); i++) {
+            // IMPORTANT
+            // we reset the x and y of the data which is out of drawing area
+            // to prevent memory leaks
+            data[i].x = res.date - XAXISRANGE - TICKINTERVAL
+            data[i].y = 0
+            data2[i].x = res.date - XAXISRANGE - TICKINTERVAL
+            data2[i].y = 0
+        }
+        
+        data.push({
+            x: res.date,
+            y: res.temp
+        })
+        data2.push({
+            x: res.date,
+            y: res.hum
+        })
 
-    for(var i = 0; i< data.length - 1 - (XAXISRANGE / TICKINTERVAL); i++) {
-        // IMPORTANT
-        // we reset the x and y of the data which is out of drawing area
-        // to prevent memory leaks
-        data[i].x = res.time - XAXISRANGE - TICKINTERVAL
-        data[i].y = 0
-        data2[i].x = res.time - XAXISRANGE - TICKINTERVAL
-        data2[i].y = 0
+        chart.updateSeries([
+            {
+                data: data
+            },
+            {
+                data: data2
+            }
+        ])
     }
-    
-    data.push({
-        x: res.time,
-        y: res.temp
-    })
-    data2.push({
-        x: res.time,
-        y: res.hum
-    })
-
 }
 
 function resetData(){
@@ -103,8 +130,8 @@ var options = {
 }
 
 var chart = new ApexCharts(
-        document.querySelector("#chart"),
-        options
+    document.querySelector("#chart"),
+    options
 );
 
 chart.render();
@@ -112,20 +139,14 @@ chart.render();
 window.setInterval(function () {
     
     xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "http://localhost:8080/json", false);
+    //xhttp.open("GET", "http://localhost:8080/json", false);
+    xhttp.open("GET", "/lastjson", false);
     xhttp.send();
     var res = JSON.parse(xhttp.responseText);
     
     document.querySelector("#temperature").innerHTML = res.temp
     document.querySelector("#humidity").innerHTML = res.hum
-    getNewSeries(res)
-    chart.updateSeries([
-        {
-            data: data
-        },
-        {
-            data: data2
-        }
-    ])
+
+    getNewSeries(res); // update Diagram
 }, TICKINTERVAL)
 
