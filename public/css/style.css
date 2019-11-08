@@ -1,20 +1,36 @@
 
-h1 {  color: rgb(243, 247, 6);}
-h1 {background-color: rgba(4, 167, 167, 0.658);;}
-h2 {  color: rgb(129, 2, 2);}
+h1 {  color: rgb(0, 153, 255);}
+h1 {background-color: rgba(0, 255, 191, 0.829);}
+h2 {  color: rgb(255, 0, 0);}
 h3 {  color: rgb(9, 73, 116);}
 div {text-align:center}
 div {text-align-last: center;}
 ol {text-align:center}
 div {text-align:center}
-body {background-color: rgba(68, 131, 150, 0.582);}
+
+
+body {
+    background-color: black;
+    color: rgb(255, 255, 255);
+}
+/*html[data-theme='dark'] {
+    --hue: 210; 
+    --accent-hue: 25;   --text-color-normal: hsl(var(--hue), 10%, 62%);
+    --text-color-light: hsl(var(--hue), 15%, 35%);
+    --text-color-richer: hsl(var(--hue), 50%, 72%);
+    --text-color-highlight: hsl(var(--accent-hue), 70%, 45%);  --link-color: hsl(var(--hue), 90%, 70%);
+    --accent-color: hsl(var(--accent-hue), 100%, 70%);
+    --error-color: rgb(240, 50, 50);  --button-background: hsl(var(--hue), 63%, 43%);
+    --button-text-color: black;  --background: hsl(var(--hue), 20%, 12%);
+}*/
+
 h3 {text-align: center;}
 a {color: red;;}
 .flex-contaimer {
     display: flex;
 }
 a {
-    background-color: rgba(14, 226, 120, 0.959);
+    background-color:  rgba(0, 255, 170, 0.829);
 }
 
 a {

@@ -95,7 +95,10 @@ var options = {
     ],
     title: {
         text: '"grün:%, blau:°C" ... Tagesdiagramm für teperatur .',
-        align: 'center'
+        align: 'center',
+        style: {
+            color: 'white'
+        },
     },
     markers: {
         size: 0
@@ -113,7 +116,10 @@ var options = {
             min: -5,
             labels:{
                 formatter: function (value) {return value + "°C"}
-            }
+            },
+            style: {
+                color: 'white'
+            },
         },
         {
             opposite: true,
@@ -122,11 +128,75 @@ var options = {
             labels:{
                 formatter: function (value) {return value + "%"}
             },
+            style: {
+                color: 'white'
+            },
         }
     ],
     legend: {
         show: false
+    },
+    dropShadow: {
+        enabled: true,
+        top: 0,
+        left: 0,
+        blur: 0,
+        opacity: 0.5
+    },
+    /*fill: {
+        type: 'pattern',
+        pattern: {
+            style: 'verticalLines',
+            width: 6,
+            height: 6,
+            strokeWidth: 2
+        }
+    }*/
+    /*colors:['#F44336', '#E91E63', '#9C27B0']*/
+    fill: {
+        colors: ['#F44336', '#E91E63', '#9C27B0']
+    },
+    
+    dataLabels: {
+        style: {
+            colors: ['#F44336', '#E91E63', '#9C27B0']
+        }
+    },
+    
+    /*markers: {
+        colors: ['#F44336', '#E91E63', '#9C27B0']
+    }*/
+    
+    grid: {
+        row: {
+            colors: ['black']
+        },
+        column: {
+            colors: ['black']
+        }
+    },
+    
+    /*subtitle: {
+        text: 'test 123',
+        align: 'left',
+        margin: 10,
+        offsetX: 0,
+        offsetY: 0,
+        floating: false,
+        style: {
+            fontSize:  '14px',
+            color:  '#9699a2'
+        },
+    }*/
+    
+    theme: {
+        mode: 'dark'
     }
+    
+    
+
+
+
 }
 
 var chart = new ApexCharts(
