@@ -23,21 +23,22 @@ function getJSON(date = Date.now()) {
     var hrange = {
         min: 50,
         max: 90
-    }
+    }                    
     var newTemp = calc_random(trange)
     var newHum = calc_random(hrange)
     return {
-        "time": date,
+        "time": date,   
         "temp": newTemp, //in °C
         "hum" : newHum, //in %
     };
 }*/
+
 app.post('/', function (req, res) {
     var data = req.body
         data.date = Date.now()
         filereader.appendData(data);
         res.json({success:true});
-});
+}); 
 
 app.get('/',function (req, res) {
     res.sendfile("index.html")
